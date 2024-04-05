@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+  flask-project:
+    container_name: flask_app
+    build: ./
+    ports:
+      - 8080:5000
+    tty: true
+    volumes:
+      - ./:/workspace
+    working_dir: /workspace
+    environment:
+      - FLASK_APP=app/app.py
+      - FLASK_ENV=development
+    # command: flask run --host=0.0.0.0
